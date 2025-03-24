@@ -1,4 +1,4 @@
-from aux.functions import branin4_function
+from auxiliary.functions import branin4_function
 import hypermapper
 import sys
 from subprocess import Popen, PIPE
@@ -14,7 +14,7 @@ def branin4_cli(path, json="branin4_scenario_cli.json"):
     cmd = [
         "python",
         os.path.join(f"{path}", "..", "hypermapper", "run.py"),
-        os.path.join(f"{path}", "..", "tests", "aux", json),
+        os.path.join(f"{path}", "..", "tests", "auxiliary", json),
     ]
     print(cmd)  # Command to launch Hypermapper
     p = Popen(

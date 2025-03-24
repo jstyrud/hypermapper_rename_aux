@@ -2,8 +2,8 @@ import torch
 from matplotlib import pyplot as plt
 
 import hypermapper  # noqa
-from aux.functions import *
-from aux.test_cli import branin4_cli
+from auxiliary.functions import *
+from auxiliary.test_cli import branin4_cli
 from typing import Callable, Optional, List, Dict
 from hypermapper.util.file import read_settings_file
 
@@ -16,13 +16,13 @@ if not os.path.isdir(os.path.join(f"{testing_directory}", "outputfiles")):
 
 
 def runBenchmark(scenario: str, function: Callable, output_file: Optional[str] = None):
-    settings_file = os.path.join(f"{testing_directory}", "aux", f"{scenario}.json")
+    settings_file = os.path.join(f"{testing_directory}", "auxiliary", f"{scenario}.json")
     settings = read_settings_file(settings_file)
     settings["log_file"] = os.path.join(
         f"{testing_directory}", "logs", f"{scenario.split('.')[0]}.log"
     )
     settings["resume_optimization_file"] = os.path.join(
-        f"{testing_directory}", "aux", f"{settings['resume_optimization_file']}"
+        f"{testing_directory}", "auxiliary", f"{settings['resume_optimization_file']}"
     )
     if output_file:
         settings["output_data_file"] = os.path.join(
@@ -49,7 +49,7 @@ def run_performance_test(
     for filename, function, bname in zip(setting_files, functions, benchmark_names):
         for setting, name in zip(additional_settings, names):
             settings_file = os.path.join(
-                f"{testing_directory}", "aux", f"{filename}.json"
+                f"{testing_directory}", "auxiliary", f"{filename}.json"
             )
             settings = read_settings_file(settings_file)
             settings.update(setting)
@@ -294,7 +294,7 @@ def crash_test():
 
     # RS
     settings_file = os.path.join(
-        f"{testing_directory}", "aux", "branin4_scenario_gp.json"
+        f"{testing_directory}", "auxiliary", "branin4_scenario_gp.json"
     )
     settings = read_settings_file(settings_file)
     settings["log_file"] = os.path.join(

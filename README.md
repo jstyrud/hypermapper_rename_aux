@@ -20,7 +20,7 @@ There are two main ways to interact with Hypermapper: either by using calling it
 import hypermapper
 hypermapper.optimize("json_name.py", blackbox-function)
 ```
-if you have a python interface to your application, or through the client-server functionality that interacts with your application through the terminal. In either case, a .json scenario file is required that sets up the optimization. This is where the input parameters are given as well as other run settings. Examples of scenario files can be found in tests/aux and the full template is found in hypermapper/schema.json.
+if you have a python interface to your application, or through the client-server functionality that interacts with your application through the terminal. In either case, a .json scenario file is required that sets up the optimization. This is where the input parameters are given as well as other run settings. Examples of scenario files can be found in tests/auxiliary and the full template is found in hypermapper/schema.json.
 
 # Running Hypermapper with a black-box function
 To run it with a blackbox function, simply call the optimize() routine with a callable python-function and the name of the scenario file.
